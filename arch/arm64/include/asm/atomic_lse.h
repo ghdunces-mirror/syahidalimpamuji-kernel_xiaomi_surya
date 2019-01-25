@@ -480,19 +480,12 @@ static __always_inline u##sz __cmpxchg_case_##name##sz(volatile void *ptr,	\
 {									\
 	register unsigned long x0 asm ("x0") = (unsigned long)ptr;	\
 	register u##sz x1 asm ("x1") = old;				\
-static inline u##sz __cmpxchg_case_##name##sz(volatile void *ptr,	\
-					      unsigned long old,	\
-					      u##sz new)		\
-{									\
-	register unsigned long x0 asm ("x0") = (unsigned long)ptr;	\
-	register unsigned long x1 asm ("x1") = old;			\
 	register u##sz x2 asm ("x2") = new;				\
 									\
 	asm volatile(ARM64_LSE_ATOMIC_INSN(				\
 	/* LL/SC */							\
 	__LL_SC_CMPXCHG(name##sz)					\
 	__nops(3),							\
-	__nops(2),							\
 	/* LSE atomics */						\
 	"	prfm	pstl1strm, %[v]\n"				\
 	"	mov	" #w "30, %" #w "[old]\n"			\
