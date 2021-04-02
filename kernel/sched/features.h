@@ -143,7 +143,6 @@ SCHED_FEAT(SCHEDTUNE_BOOST_HOLD_ALL, false)
  * If disabled, boosts will only bias tasks to higher-capacity CPUs.
  */
 SCHED_FEAT(SCHEDTUNE_BOOST_UTIL, true)
-SCHED_FEAT(FBT_STRICT_ORDER, true)
 
 /*
  * Bias schedtune boosted tasks to higher capacity CPUs.
