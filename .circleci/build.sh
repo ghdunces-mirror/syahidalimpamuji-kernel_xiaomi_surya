@@ -3,11 +3,9 @@ echo "Cloning dependencies"
 git clone --depth=1 https://github.com/kdrag0n/proton-clang clang
 git clone --depth=1 https://github.com/akira-vishal/AnyKernel3.git AnyKernel
 echo "Done"
-DEVICE=WhyRed
-DEFCONFIG=whyred_defconfig
-CAMERA=OldCam
-OVERCLOCK=OC
-VERSION=Z2
+DEVICE=Surya
+DEFCONFIG=surya_defconfig
+VERSION=V2
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 TANGGAL=$(date +"%F-%S")
 START=$(date +"%s")
@@ -15,9 +13,9 @@ KERNEL_DIR=$(pwd)
 PATH="${PWD}/clang/bin:$PATH"
 export KBUILD_COMPILER_STRING="$(${KERNEL_DIR}/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 export ARCH=arm64
-export LOCALVERSION="-Z2"
+export LOCALVERSION="-neXus-Surya-V2"
 export KBUILD_BUILD_HOST=circleci
-export KBUILD_BUILD_USER="vishal"
+export KBUILD_BUILD_USER="Zeetaa"
 # sticker plox
 function sticker() {
     curl -s -X POST "https://api.telegram.org/bot$token/sendSticker" \
@@ -69,7 +67,7 @@ function compile() {
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
-    zip -r9 neXus-${VERSION}_${DEVICE}-${CAMERA}-${OVERCLOCK}-KERNEL-${TANGGAL}.zip *
+    zip -r9 neXus-${VERSION}_${DEVICE}-KERNEL-${TANGGAL}.zip *
     cd ..
 }
 sticker
