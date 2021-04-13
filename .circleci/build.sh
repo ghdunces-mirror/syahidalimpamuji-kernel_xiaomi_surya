@@ -15,7 +15,7 @@ export KBUILD_COMPILER_STRING="$(${KERNEL_DIR}/clang/bin/clang --version | head 
 export ARCH=arm64
 export LOCALVERSION="-neXus-Surya-V2"
 export KBUILD_BUILD_HOST=circleci
-export KBUILD_BUILD_USER="Zeetaa"
+export KBUILD_BUILD_USER="NotZeetaa"
 # sticker plox
 function sticker() {
     curl -s -X POST "https://api.telegram.org/bot$token/sendSticker" \
