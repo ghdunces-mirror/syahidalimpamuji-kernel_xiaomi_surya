@@ -5,7 +5,7 @@ git clone --depth=1 https://github.com/akira-vishal/AnyKernel3.git AnyKernel
 echo "Done"
 DEVICE=Surya
 DEFCONFIG=surya_defconfig
-VERSION=V2
+VERSION=V2.2
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 TANGGAL=$(date +"%F-%S")
 START=$(date +"%s")
