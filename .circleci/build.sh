@@ -4,8 +4,8 @@ git clone --depth=1 https://github.com/kdrag0n/proton-clang clang
 git clone --depth=1 https://github.com/akira-vishal/AnyKernel3.git AnyKernel
 echo "Done"
 DEVICE=Surya
-DEFCONFIG=surya_defconfig
-VERSION=V2.2
+DEFCONFIG=sabun_defconfig
+VERSION=V0
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 TANGGAL=$(date +"%F-%S")
 START=$(date +"%s")
@@ -13,9 +13,9 @@ KERNEL_DIR=$(pwd)
 PATH="${PWD}/clang/bin:$PATH"
 export KBUILD_COMPILER_STRING="$(${KERNEL_DIR}/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 export ARCH=arm64
-export LOCALVERSION="-neXus-Surya-V2"
-export KBUILD_BUILD_HOST=circleci
-export KBUILD_BUILD_USER="NotZeetaa"
+export LOCALVERSION="-Sabun-Surya"
+export KBUILD_BUILD_HOST=build
+export KBUILD_BUILD_USER="Syahid_Alim_Pamuji"
 # sticker plox
 function sticker() {
     curl -s -X POST "https://api.telegram.org/bot$token/sendSticker" \
